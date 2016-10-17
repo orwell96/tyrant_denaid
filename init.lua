@@ -758,7 +758,7 @@ denaid.show_ruleset_add_form=function(player, areaid, ruleindex)
 			build=true,
 			inv=true
 		})
-		denaid.show_ruleset_edit_form(pname, areaid, 1)
+		denaid.show_ruleset_edit_form(player:get_player_name(), areaid, 1)
 		return
 	else
 		rulesetstr=rulesetstr..S("behind all others")
