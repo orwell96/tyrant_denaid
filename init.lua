@@ -737,7 +737,7 @@ denaid.show_ruleset_edit_form=function(player, areaid, ruleindex)
 		"button[0,5;4,1;save;"..S("Save").."]"
 	minetest.show_formspec(player, "denaidruleedit_"..areaid..":"..ruleindex, formtext)
 end
-denaid.show_ruleset_add_form=function(player, areaid, ruleindex)
+denaid.show_ruleset_add_form=function(pname, areaid, ruleindex)
 	local areadef=denaid_areas[areaid]
 	if not areadef then return end
 	if not areadef.rulesets then areadef.rulesets={} end
@@ -758,7 +758,7 @@ denaid.show_ruleset_add_form=function(player, areaid, ruleindex)
 			build=true,
 			inv=true
 		})
-		denaid.show_ruleset_edit_form(player:get_player_name(), areaid, 1)
+		denaid.show_ruleset_edit_form(pname, areaid, 1)
 		return
 	else
 		rulesetstr=rulesetstr..S("behind all others")
@@ -769,7 +769,7 @@ denaid.show_ruleset_add_form=function(player, areaid, ruleindex)
 	local formtext="size[5,8]label[0,0;"..areadef.fname.." ("..areaid..")]label[0,1;"..S("Double-click new position").."]"..
 	"label[0,2;"..S("Enter Activate Inventory Build   Players").."]textlist[0,3;5,5;rulesets;"..rulesetstr..";0;false]"
 
-	minetest.show_formspec(player, "denaidruleadd_"..areaid, formtext)
+	minetest.show_formspec(pname, "denaidruleadd_"..areaid, formtext)
 end
 denaid.show_ruleset_remove_form=function(player, areaid, ruleindex)
 	local areadef=denaid_areas[areaid]
